@@ -1,3 +1,10 @@
+## 0.0.5
+
+- **迁移到 Built-in Kotlin**（对齐 Flutter 3.44+ 新标准）：
+  - 移除 legacy `kotlin-android` 插件 + `kotlinOptions`，改用 `kotlin.compilerOptions{}` DSL（jvmTarget 17）。
+  - 提升最低 Flutter 版本到 3.44 / Dart 3.12（KGP 2.0+ 要求）。
+- 修复：插件 Android 构建 JVM target 与 example 模板不一致（Java 21 vs Kotlin 17）→ 统一 Java 17 + Kotlin 17。
+
 ## 0.0.4
 
 - **独立发布**：包名从 `tencent_identity_verification` 更改为 `identity_verification_flutter`
