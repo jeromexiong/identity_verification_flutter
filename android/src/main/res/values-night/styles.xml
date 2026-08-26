@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 暗夜主题：深色导航栏/窗口背景 + 浅色状态栏图标（对齐 Flutter 暗夜模式） -->
+    <style name="H5FaceVerifyTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">#121212</item>
+        <item name="android:navigationBarColor">#121212</item>
+        <!-- 暗夜状态栏：浅色图标（API23+ 由代码 SYSTEM_UI_FLAG_LIGHT_STATUS_BAR 关闭） -->
+    </style>
+</resources>

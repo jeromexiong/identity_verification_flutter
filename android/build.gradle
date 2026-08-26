@@ -1,0 +1,22 @@
+group = "com.transcend.qiyun.tencent_identity_verification"
+version = "0.0.1"
+
+apply plugin: "com.android.library"
+
+android {
+    namespace = "com.transcend.qiyun.tencent_identity_verification"
+    compileSdk = 34
+
+    defaultConfig {
+        minSdk = 21
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+}
+
+dependencies {
+    // H5FaceVerifyActivity 主题依赖 appcompat（Theme.AppCompat.Light.NoActionBar）
+    implementation "androidx.appcompat:appcompat:1.7.0"
+}

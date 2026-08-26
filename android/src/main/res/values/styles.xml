@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 亮色主题：白底黑字导航栏 + 浅色状态栏（对齐 Flutter AppTdNavBar 亮色风格） -->
+    <style name="H5FaceVerifyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
+        <!-- 亮色状态栏：深色图标（API23+ 由代码 SYSTEM_UI_FLAG_LIGHT_STATUS_BAR 设置） -->
+    </style>
+</resources>
