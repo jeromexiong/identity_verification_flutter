@@ -6,12 +6,12 @@
 [![Dart](https://img.shields.io/badge/Dart-%3E%3D3.12.0-blue.svg)](https://dart.dev)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-| 包 | pub.dev |
-|---|---|
-| `identity_verification_flutter` | [![pub package](https://img.shields.io/pub/v/identity_verification_flutter.svg)](https://pub.dev/packages/identity_verification_flutter) |
+| 包                                                 | pub.dev                                                                                                                                                                        |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `identity_verification_flutter`                    | [![pub package](https://img.shields.io/pub/v/identity_verification_flutter.svg)](https://pub.dev/packages/identity_verification_flutter)                                       |
 | `identity_verification_flutter_platform_interface` | [![pub package](https://img.shields.io/pub/v/identity_verification_flutter_platform_interface.svg)](https://pub.dev/packages/identity_verification_flutter_platform_interface) |
-| `identity_verification_flutter_android` | [![pub package](https://img.shields.io/pub/v/identity_verification_flutter_android.svg)](https://pub.dev/packages/identity_verification_flutter_android) |
-| `identity_verification_flutter_ios` | [![pub package](https://img.shields.io/pub/v/identity_verification_flutter_ios.svg)](https://pub.dev/packages/identity_verification_flutter_ios) |
+| `identity_verification_flutter_android`            | [![pub package](https://img.shields.io/pub/v/identity_verification_flutter_android.svg)](https://pub.dev/packages/identity_verification_flutter_android)                       |
+| `identity_verification_flutter_ios`                | [![pub package](https://img.shields.io/pub/v/identity_verification_flutter_ios.svg)](https://pub.dev/packages/identity_verification_flutter_ios)                               |
 
 ## 简介
 
@@ -37,12 +37,12 @@ identity_verification_flutter/          # 根目录
 └── example/                                          # 示例应用（在各子包内）
 ```
 
-| 包                                                 | 职责                                    | pub.dev |
-| -------------------------------------------------- | --------------------------------------- | ------- |
-| [`identity_verification_flutter`](https://pub.dev/packages/identity_verification_flutter)                    | App-facing 包 — 对外 API                | [![pub](https://img.shields.io/pub/v/identity_verification_flutter.svg)](https://pub.dev/packages/identity_verification_flutter) |
+| 包                                                                                                                              | 职责                                    | pub.dev                                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`identity_verification_flutter`](https://pub.dev/packages/identity_verification_flutter)                                       | App-facing 包 — 对外 API                | [![pub](https://img.shields.io/pub/v/identity_verification_flutter.svg)](https://pub.dev/packages/identity_verification_flutter)                                       |
 | [`identity_verification_flutter_platform_interface`](https://pub.dev/packages/identity_verification_flutter_platform_interface) | 平台接口 + MethodChannel 默认实现       | [![pub](https://img.shields.io/pub/v/identity_verification_flutter_platform_interface.svg)](https://pub.dev/packages/identity_verification_flutter_platform_interface) |
-| [`identity_verification_flutter_android`](https://pub.dev/packages/identity_verification_flutter_android)            | Android 原生代码 + dartPluginClass 注册 | [![pub](https://img.shields.io/pub/v/identity_verification_flutter_android.svg)](https://pub.dev/packages/identity_verification_flutter_android) |
-| [`identity_verification_flutter_ios`](https://pub.dev/packages/identity_verification_flutter_ios)                | iOS 原生代码 + dartPluginClass 注册     | [![pub](https://img.shields.io/pub/v/identity_verification_flutter_ios.svg)](https://pub.dev/packages/identity_verification_flutter_ios) |
+| [`identity_verification_flutter_android`](https://pub.dev/packages/identity_verification_flutter_android)                       | Android 原生代码 + dartPluginClass 注册 | [![pub](https://img.shields.io/pub/v/identity_verification_flutter_android.svg)](https://pub.dev/packages/identity_verification_flutter_android)                       |
+| [`identity_verification_flutter_ios`](https://pub.dev/packages/identity_verification_flutter_ios)                               | iOS 原生代码 + dartPluginClass 注册     | [![pub](https://img.shields.io/pub/v/identity_verification_flutter_ios.svg)](https://pub.dev/packages/identity_verification_flutter_ios)                               |
 
 宿主只需依赖 `identity_verification_flutter`，平台包自动传递依赖。
 

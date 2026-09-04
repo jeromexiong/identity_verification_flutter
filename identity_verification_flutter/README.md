@@ -1,8 +1,10 @@
 # identity_verification_flutter
 
+[![pub package](https://img.shields.io/pub/v/identity_verification_flutter.svg)](https://pub.dev/packages/identity_verification_flutter)
+
 腾讯身份认证 H5 刷脸桥接 Flutter 插件（放心签 faceIntegrate / 腾讯慧眼 H5 WebView 容器）。
 
-> 仓库：https://github.com/jeromexiong/identity_verification_flutter ｜ pub.dev：`identity_verification_flutter`
+> 仓库：https://github.com/jeromexiong/identity_verification_flutter ｜ pub.dev：[`identity_verification_flutter`](https://pub.dev/packages/identity_verification_flutter)
 
 ## 架构（Federated Plugin）
 
