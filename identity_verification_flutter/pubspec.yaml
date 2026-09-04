@@ -1,6 +1,7 @@
 name: identity_verification_flutter
 description: "腾讯身份认证 H5 刷脸桥接 Flutter 插件（放心签 faceIntegrate / 腾讯慧眼 H5 WebView）"
 version: 0.1.0
+publish_to: none  # CI 发布时自动移除
 homepage: https://github.com/jeromexiong/identity_verification_flutter
 repository: https://github.com/jeromexiong/identity_verification_flutter
 issue_tracker: https://github.com/jeromexiong/identity_verification_flutter/issues
