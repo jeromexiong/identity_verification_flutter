@@ -64,6 +64,11 @@ jobs:
           channel: stable
       - uses: dart-lang/setup-dart@v1
 
+      - name: Authenticate to pub.dev
+        run: dart pub token add https://pub.dev --env PUB_TOKEN
+        env:
+          PUB_TOKEN: ${{ secrets.PUB_TOKEN }}
+
       # ── 发布 platform_interface（无内部依赖）──
       - name: Publish platform_interface
         working-directory: identity_verification_flutter_platform_interface
