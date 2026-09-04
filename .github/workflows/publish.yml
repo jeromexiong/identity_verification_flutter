@@ -5,6 +5,13 @@ on:
     tags:
       - "v*"
 
+env:
+  PACKAGES: >-
+    identity_verification_flutter_platform_interface
+    identity_verification_flutter_android
+    identity_verification_flutter_ios
+    identity_verification_flutter
+
 jobs:
   verify-tag:
     runs-on: ubuntu-latest
@@ -25,18 +32,67 @@ jobs:
     needs: verify-tag
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    strategy:
+      matrix:
+        package:
+          - identity_verification_flutter_platform_interface
+          - identity_verification_flutter_android
+          - identity_verification_flutter_ios
+          - identity_verification_flutter
     steps:
       - uses: actions/checkout@v6
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
-      - run: flutter pub get
-      - run: flutter test
+      - name: Install dependencies
+        working-directory: ${{ matrix.package }}
+        run: flutter pub get
+      - name: Run tests
+        working-directory: ${{ matrix.package }}
+        run: flutter test
 
   publish:
     needs: [verify-tag, test]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       id-token: write
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-    with:
-      environment: pub
+    steps:
+      - uses: actions/checkout@v6
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - uses: dart-lang/setup-dart@v1
+
+      # ── 发布 platform_interface（无内部依赖）──
+      - name: Publish platform_interface
+        working-directory: identity_verification_flutter_platform_interface
+        run: |
+          dart pub get
+          yes | dart pub publish
+
+      # ── 发布 android（依赖 platform_interface）──
+      - name: Publish android
+        working-directory: identity_verification_flutter_android
+        run: |
+          sed -i 's|path: ../identity_verification_flutter_platform_interface|^0.1.0|' pubspec.yaml
+          dart pub get
+          yes | dart pub publish
+
+      # ── 发布 ios（依赖 platform_interface）──
+      - name: Publish ios
+        working-directory: identity_verification_flutter_ios
+        run: |
+          sed -i 's|path: ../identity_verification_flutter_platform_interface|^0.1.0|' pubspec.yaml
+          dart pub get
+          yes | dart pub publish
+
+      # ── 发布 app-facing（依赖所有子包）──
+      - name: Publish app-facing
+        working-directory: identity_verification_flutter
+        run: |
+          sed -i 's|path: ../identity_verification_flutter_platform_interface|^0.1.0|' pubspec.yaml
+          sed -i 's|path: ../identity_verification_flutter_android|^0.1.0|' pubspec.yaml
+          sed -i 's|path: ../identity_verification_flutter_ios|^0.1.0|' pubspec.yaml
+          dart pub get
+          yes | dart pub publish
