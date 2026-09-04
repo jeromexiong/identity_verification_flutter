@@ -12,9 +12,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  identity_verification_flutter_platform_interface: ^0.1.0
-  identity_verification_flutter_android: ^0.1.0
-  identity_verification_flutter_ios: ^0.1.0
+  identity_verification_flutter_platform_interface:
+    path: ../identity_verification_flutter_platform_interface
+  identity_verification_flutter_android:
+    path: ../identity_verification_flutter_android
+  identity_verification_flutter_ios:
+    path: ../identity_verification_flutter_ios
 
 dev_dependencies:
   flutter_test:
