@@ -9,7 +9,7 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "identity_verification_flutter_ios",
+            name: "identity-verification-flutter-ios",
             targets: ["identity_verification_flutter_ios"]
         )
     ],

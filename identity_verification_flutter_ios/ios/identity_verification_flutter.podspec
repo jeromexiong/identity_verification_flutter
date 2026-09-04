@@ -7,8 +7,8 @@ Pod::Spec.new do |s|
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'TranscendTech' => 'dev@transcendtech.com' }
   s.source           = { :path => '.' }
-  s.source_files     = 'identity_verification_flutter/Sources/**/*'
-  s.public_header_files = 'identity_verification_flutter/Sources/**/*.h'
+  s.source_files     = 'identity_verification_flutter_ios/Sources/**/*'
+  s.public_header_files = 'identity_verification_flutter_ios/Sources/**/*.h'
   s.dependency 'Flutter'
   s.platform = :ios, '13.0'
   s.swift_version = '5.0'
