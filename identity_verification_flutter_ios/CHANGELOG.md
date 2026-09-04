@@ -1,3 +1,8 @@
+## 0.1.2
+
+- Fix podspec: rename `identity_verification_flutter.podspec` → `identity_verification_flutter_ios.podspec`
+- Update `s.name` to `identity_verification_flutter_ios`
+
 ## 0.1.1
 
 - Fix iOS SPM build: rename `ios/identity_verification_flutter/` → `ios/identity_verification_flutter_ios/`

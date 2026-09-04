@@ -1,3 +1,7 @@
+## 0.1.2
+
+- Bump `identity_verification_flutter_ios` to 0.1.2 (podspec name fix)
+
 ## 0.1.1
 
 - Bump `identity_verification_flutter_ios` to 0.1.1 (iOS SPM build fix)

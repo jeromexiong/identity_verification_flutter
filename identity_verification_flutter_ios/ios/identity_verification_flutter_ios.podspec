@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name             = 'identity_verification_flutter'
-  s.version          = '0.0.4'
+  s.name             = 'identity_verification_flutter_ios'
+  s.version          = '0.1.2'
   s.summary          = '腾讯身份认证 H5 刷脸桥接 Flutter 插件'
   s.description      = '封装放心签 faceIntegrate / 腾讯慧眼 H5 刷脸 WebView（WKWebView），MethodChannel com.transcend.qiyun/tencent_identity_verification，对齐 uniapp DC-WBH5FaceVerifyService 语义'
   s.homepage         = 'https://github.com/transcendtech'
