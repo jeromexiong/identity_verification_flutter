@@ -1,3 +1,7 @@
+## 0.1.1
+
+- Bump `identity_verification_flutter_ios` to 0.1.1 (iOS SPM build fix)
+
 ## 0.1.0
 
 - **Federated Plugin 迁移**：仓库重组为四包并列结构（对齐 flutter/packages url_launcher）

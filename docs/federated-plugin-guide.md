@@ -49,12 +49,12 @@ identity_verification_flutter/                          # 仓库根目录
 
 ## 各包职责
 
-| 包 | 职责 | 关键文件 |
-|---|---|---|
-| **app-facing** | 对外 API，用户 import 的唯一入口 | `IdentityVerification` 类 |
+| 包                     | 职责                                       | 关键文件                                           |
+| ---------------------- | ------------------------------------------ | -------------------------------------------------- |
+| **app-facing**         | 对外 API，用户 import 的唯一入口           | `IdentityVerification` 类                          |
 | **platform_interface** | 抽象接口 + 数据类 + MethodChannel 默认实现 | `IdentityVerificationPlatform`, `FaceVerifyResult` |
-| **android** | Android 原生代码 + dartPluginClass 注册 | `IdentityVerificationAndroid.registerWith()` |
-| **ios** | iOS 原生代码 + dartPluginClass 注册 | `IdentityVerificationIos.registerWith()` |
+| **android**            | Android 原生代码 + dartPluginClass 注册    | `IdentityVerificationAndroid.registerWith()`       |
+| **ios**                | iOS 原生代码 + dartPluginClass 注册        | `IdentityVerificationIos.registerWith()`           |
 
 ## pubspec.yaml 配置要点
 
@@ -63,7 +63,7 @@ identity_verification_flutter/                          # 仓库根目录
 ```yaml
 name: identity_verification_flutter_platform_interface
 version: 0.1.0
-publish_to: none  # 本地开发用，CI 发布时自动移除
+publish_to: none # 本地开发用，CI 发布时自动移除
 
 environment:
   sdk: ^3.12.0
@@ -84,17 +84,17 @@ publish_to: none
 
 flutter:
   plugin:
-    implements: identity_verification_flutter    # ← 指向 app-facing 包名
+    implements: identity_verification_flutter # ← 指向 app-facing 包名
     platforms:
       ios:
         pluginClass: TencentIdentityVerificationPlugin
-        dartPluginClass: IdentityVerificationIos     # ← dartPluginClass 自动注册
+        dartPluginClass: IdentityVerificationIos # ← dartPluginClass 自动注册
         swiftPackageManager:
           enabled: true
 
 dependencies:
   identity_verification_flutter_platform_interface:
-    path: ../identity_verification_flutter_platform_interface  # 本地开发用
+    path: ../identity_verification_flutter_platform_interface # 本地开发用
 ```
 
 ### app-facing 包
@@ -279,10 +279,13 @@ git push origin main --tags
 ## 常见问题
 
 ### Q: 本地 `dart pub publish` 报 "can't have path dependencies"
+
 A: 这是预期行为。本地 pubspec 用 `path:` 开发，CI 发布时自动替换为版本号。加 `publish_to: none` 消除警告。
 
 ### Q: iOS 构建报 "Module not found"
+
 A: 检查 `ios/` 目录名是否与 Dart 包名一致，`Package.swift` 产品名是否用连字符。
 
 ### Q: 新增平台（如 ohos）
+
 A: 创建 `identity_verification_flutter_ohos/`，实现 `IdentityVerificationPlatform`，在 app-facing `pubspec.yaml` 添加 `default_package`。
