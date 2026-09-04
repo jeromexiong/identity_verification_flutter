@@ -34,9 +34,9 @@ identity_verification_flutter/                          # 仓库根目录
 │   ├── pubspec.yaml
 │   ├── lib/identity_verification_flutter_ios.dart      # dartPluginClass
 │   ├── ios/
-│   │   ├── identity_verification_flutter.podspec       # CocoaPods（兼容旧版）
-│   │   └── identity_verification_flutter_ios/          # SPM 包目录
-│   │       ├── Package.swift
+│   │   ├── identity_verification_flutter_ios.podspec   # CocoaPods（s.name = Dart 包名）
+│   │   └── identity_verification_flutter_ios/          # SPM 包目录（目录名 = Dart 包名）
+│   │       ├── Package.swift                           # 产品名用连字符
 │   │       └── Sources/identity_verification_flutter_ios/
 │   ├── test/
 │   └── CHANGELOG.md, README.md, LICENSE
@@ -219,8 +219,11 @@ let package = Package(
 ### Podspec 兼容
 
 ```ruby
+s.name = 'identity_verification_flutter_ios'  # ← 必须与 Dart 包名一致
 s.source_files = 'identity_verification_flutter_ios/Sources/**/*'
 ```
+
+> **踩坑：** podspec 文件名和 `s.name` 都必须与 Dart 包名匹配。旧名 `identity_verification_flutter.podspec` 会导致 CocoaPods 找不到 podspec。
 
 ## CI/CD 配置
 
@@ -284,8 +287,29 @@ A: 这是预期行为。本地 pubspec 用 `path:` 开发，CI 发布时自动�
 
 ### Q: iOS 构建报 "Module not found"
 
-A: 检查 `ios/` 目录名是否与 Dart 包名一致，`Package.swift` 产品名是否用连字符。
+A: 三个命名必须一致：
+1. `ios/` 下的 **目录名** = Dart 包名（如 `identity_verification_flutter_ios/`）
+2. **podspec 文件名** = `{Dart包名}.podspec`（如 `identity_verification_flutter_ios.podspec`）
+3. `s.name` = Dart 包名
+4. `Package.swift` 产品名用 **连字符**（Flutter 自动把 `_` 转 `-`）
 
 ### Q: 新增平台（如 ohos）
 
 A: 创建 `identity_verification_flutter_ohos/`，实现 `IdentityVerificationPlatform`，在 app-facing `pubspec.yaml` 添加 `default_package`。
+
+### Q: 发布时版本号如何管理？
+
+A: 四个包的版本号独立管理：
+- `platform_interface` — 接口变更时 bump
+- `android` / `ios` — 原生代码变更时 bump
+- `app-facing` — 任何子包 bump 时跟随 bump（传递依赖）
+
+发布顺序：`platform_interface → android → ios → app-facing`
+
+### Q: `publish_to: none` 和 CI 发布冲突吗？
+
+A: 不冲突。CI 的 `publish.yml` 会用 `sed` 自动移除 `publish_to: none` 行，替换 `path:` 为版本号，发布后再恢复（CI 环境是临时的，无需恢复）。
+
+### Q: iOS 真机调试无线连接很慢？
+
+A: iOS 26 无线调试的 VM Service 发现需要 75+ 秒。建议用 USB 线连接获得更快的 Hot Reload 速度。
