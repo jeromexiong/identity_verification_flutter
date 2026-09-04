@@ -26,7 +26,7 @@
 
 ```yaml
 dependencies:
-  identity_verification_flutter: ^0.0.4
+  identity_verification_flutter: ^0.1.0
 ```
 
 或本地 path 依赖（从宿主仓库内）：
