@@ -13,13 +13,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _plugin = TencentIdentityVerification();
+  final _plugin = IdentityVerification();
   String _status = '未拉起';
 
   Future<void> _startFaceVerify() async {
     setState(() => _status = '拉起中…');
     try {
-      await _plugin.startH5FaceVerify(
+      await _plugin.startFaceVerify(
         // 示例：替换为后端 getFaceVerifyUrl 返回的人脸 H5 地址
         h5faceUrl: 'https://mobile.fangxinqian.cn/faceIntegrate?faceType=1',
         // 刷脸完成后要跳转的接入方地址
@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _destroyFaceVerify() async {
-    await _plugin.destroyH5FaceVerify();
+    await _plugin.destroy();
     if (mounted) setState(() => _status = '已关闭');
   }
 

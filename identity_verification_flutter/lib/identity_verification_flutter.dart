@@ -2,7 +2,7 @@
 ///
 /// 导出 [IdentityVerification]（新名）和 [TencentIdentityVerification]（deprecated 别名）、
 /// [FaceVerifyResult]（新名）和 [FaceVerifyH5Result]（deprecated 别名）。
-library identity_verification_flutter;
+library;
 
 import 'package:identity_verification_flutter_platform_interface/identity_verification_flutter_platform_interface.dart';
 

@@ -1,7 +1,7 @@
 name: identity_verification_flutter_android
 description: "Android implementation of the identity_verification_flutter plugin."
-version: 0.1.1
-publish_to: none  # CI 发布时由 sed 替换为版本依赖
+version: 0.1.0
+publish_to: none # CI 发布时由 sed 替换为版本依赖
 homepage: https://github.com/jeromexiong/identity_verification_flutter
 
 environment:

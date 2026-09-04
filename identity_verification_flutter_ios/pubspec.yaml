@@ -1,7 +1,7 @@
 name: identity_verification_flutter_ios
 description: "iOS implementation of the identity_verification_flutter plugin."
 version: 0.1.0
-publish_to: none  # CI 发布时自动移除
+publish_to: none # CI 发布时自动移除
 homepage: https://github.com/jeromexiong/identity_verification_flutter
 
 environment:

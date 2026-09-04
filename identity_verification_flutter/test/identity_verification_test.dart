@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:identity_verification_flutter/identity_verification_flutter.dart';
-import 'package:identity_verification_flutter_platform_interface/identity_verification_flutter_platform_interface.dart';
+import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 class FakePlatform with MockPlatformInterfaceMixin
     implements IdentityVerificationPlatform {
